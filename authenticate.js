@@ -50,8 +50,8 @@ exports.verifyAdmin = (req, res, next) => {
     .catch((err) => next(err));
 };
 
-exports.google = passport.use(
-  new GoogleStrategy(process.env.googleOAuth, () => {
-    console.log("OP bhai");
-  })
-);
+// exports.google = passport.use(
+//   new GoogleStrategy(process.env.googleOAuth, () => {
+//     console.log("OP bhai");
+//   })
+// );
