@@ -27,6 +27,7 @@ const client = mongoose.connect(process.env.mongoUri, {
 client
   .then((db) => {
     console.log("Connected to the database");
+    console.log(process.env.jwtSecret);
   })
   .catch((err) => console.log(err));
 

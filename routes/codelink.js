@@ -32,7 +32,6 @@ router.get("/", verifyUser, verifyAdmin, (req, res) => {
 });
 
 router.post("/", (req, res, next) => {
-  console.log({ ...req.body });
   const uri = generateUriForCode();
   const code = new Codes({
     uri,
