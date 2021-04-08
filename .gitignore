@@ -1,5 +1,5 @@
 .env
-keys
+keys.js
 
 # Logs
 logs

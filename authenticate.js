@@ -7,7 +7,6 @@ const JwtStrategy = passportJwt.Strategy;
 const ExtractJwt = passportJwt.ExtractJwt;
 const jwt = require("jsonwebtoken");
 const Users = require("./models/Users");
-const { jwtSecret, googleOAuth } = require("./keys");
 
 require("dotenv").config();
 
@@ -23,7 +22,7 @@ exports.jwtPassport = passport.use(
   new JwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: jwtSecret,
+      secretOrKey: process.env.jwtSecret,
     },
     (jwt_payload, done) => {
       console.log(jwt_payload);
@@ -52,7 +51,7 @@ exports.verifyAdmin = (req, res, next) => {
 };
 
 exports.google = passport.use(
-  new GoogleStrategy(googleOAuth, () => {
+  new GoogleStrategy(process.env.googleOAuth, () => {
     console.log("OP bhai");
   })
 );

@@ -6,7 +6,6 @@ const logger = require("morgan");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { mongoUri } = require("./keys");
 
 require("dotenv").config();
 
@@ -19,7 +18,7 @@ const savedCodesRouter = require("./routes/savedCodes");
 
 const app = express();
 
-const client = mongoose.connect(mongoUri, {
+const client = mongoose.connect(process.env.mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

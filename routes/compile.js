@@ -1,8 +1,18 @@
 const express = require("express");
 const axios = require("axios").default;
-const { apiCredit, apiExecute, apiKeys } = require("../keys");
 
 const router = express.Router();
+
+const apiKeys = [
+  {
+    clientId: process.env.clientIdOne,
+    clientSecret: process.env.clientSecretOne,
+  },
+  {
+    clientId: process.env.clientIdTwo,
+    clientSecret: process.env.clientSecretTwo,
+  },
+];
 
 const versions = {
   Java: 3,
@@ -21,7 +31,7 @@ const langs = {
 router.post("/", async (req, res, next) => {
   const { script, language, stdin } = req.body;
   const resp = await axios
-    .post(apiCredit, apiKeys[0], {
+    .post(process.env.apiCredit, apiKeys[0], {
       headers: { "Content-Type": "application/json" },
     })
     .then((resp) => {
@@ -34,7 +44,7 @@ router.post("/", async (req, res, next) => {
   }
   const output = await axios
     .post(
-      apiExecute,
+      process.env.apiExecute,
       {
         ...apiKeys[i],
         script,
