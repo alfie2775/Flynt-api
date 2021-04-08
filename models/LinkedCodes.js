@@ -17,7 +17,6 @@ const schema = new mongoose.Schema({
   },
   input: {
     type: String,
-    required: true,
     default: "",
   },
 });
