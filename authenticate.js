@@ -15,7 +15,7 @@ passport.serializeUser(Users.serializeUser());
 passport.deserializeUser(Users.deserializeUser());
 
 exports.getToken = (user) => {
-  return jwt.sign(user, process.env.JWT_SECRET, {});
+  return jwt.sign(user, process.env.jwtSecret, {});
 };
 
 exports.jwtPassport = passport.use(
