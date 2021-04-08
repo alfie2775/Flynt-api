@@ -1,5 +1,7 @@
 .env
 keys.js
+./keys.js
+/keys.js
 
 # Logs
 logs

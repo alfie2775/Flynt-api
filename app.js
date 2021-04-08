@@ -30,6 +30,8 @@ client
   })
   .catch((err) => console.log(err));
 
+console.log({ ...process.env });
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
